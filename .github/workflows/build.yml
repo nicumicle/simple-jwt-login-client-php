@@ -33,7 +33,7 @@ jobs:
         run: vendor/bin/phpcs src/
 
       - name: Run phpstan
-        run: vendor/bin/phpstan analyse src/ -c phpstan.neon
+        run: vendor/bin/phpstan analyse src/
 
       - name: Run PHPCS on tests
         run: vendor/bin/phpcs tests/
