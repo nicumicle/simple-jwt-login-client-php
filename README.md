@@ -1,6 +1,16 @@
 <p align="center">
     <img src="https://ps.w.org/simple-jwt-login/assets/banner-772x250.png?rev=2106097">
 </p>
+<p align="center">
+    <img src="https://github.com/nicumicle/simple-jwt-login-client-php/actions/workflows/build.yml/badge.svg" />
+    <img src="https://codecov.io/gh/nicumicle/simple-jwt-login-client-php/branch/master/graph/badge.svg?token=B62kTXfP60"/>
+</p>
+
+[![Latest Stable Version](http://poser.pugx.org/nicumicle/simple-jwt-login-client-php/v)](https://packagist.org/packages/nicumicle/simple-jwt-login-client-php)
+[![Total Downloads](http://poser.pugx.org/nicumicle/simple-jwt-login-client-php/downloads)](https://packagist.org/packages/nicumicle/simple-jwt-login-client-php)
+[![License](http://poser.pugx.org/nicumicle/simple-jwt-login-client-php/license)](https://packagist.org/packages/nicumicle/simple-jwt-login-client-php)
+[![PHP Version Require](http://poser.pugx.org/nicumicle/simple-jwt-login-client-php/require/php)](https://packagist.org/packages/nicumicle/simple-jwt-login-client-php)
+
 
 # The simple-jwt-login PHP client
 This client will help you integrate your PHP Application with a WordPress website that is using the [simple-jwt-login](https://wordpress.org/plugins/simple-jwt-login) WordPress plugin.
