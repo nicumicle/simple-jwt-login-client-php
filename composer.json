@@ -1,0 +1,46 @@
+{
+    "name": "nicumicle/simple-jwt-login-client-php",
+    "description": "Simple JWT Login Client composer package",
+    "type": "library",
+    "keywords": [
+        "simple-jwt-login",
+        "simple-jwt-login-client"
+    ],
+    "homepage": "https://github.com/nicumicle/simple-jwt-login-client-php",
+    "license": [
+        "GPL-2.0-or-later"
+    ],
+    "authors": [
+        {
+            "name": "Nicu Micle",
+            "email": "contact@simplejwtlogin.com",
+            "role" : "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SimpleJwtLoginClient\\": "src",
+            "SimpleJwtLoginClientTests\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=5.6",
+        "ext-curl": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "*",
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "archive": {
+        "exclude": [
+            "/.gitattributes",
+          "/.gitignore",
+            "/.php_cs.dist",
+          "/tests",
+            "/.phpuni.xml.dist",
+            "/.phpstan.neon.dist",
+          "/.phpcs.xml.dist"
+        ]
+    }
+}
