@@ -14,7 +14,6 @@ class Curl implements CurlInterface
      */
     private $statusCode;
 
-
     /**
      * @param string $method
      * @param string $url
@@ -31,9 +30,10 @@ class Curl implements CurlInterface
             'redirection' => isset($parameters['redirection'])
                 ? $parameters['redirection']
                 : 10,
+            'headers' => [],
+            'body' => [],
         );
 
-        $args['body'] = [];
         if (isset($parameters['body'])) {
             $args['body'] = $parameters['body'];
         }
@@ -51,7 +51,7 @@ class Curl implements CurlInterface
             CURLOPT_CONNECTTIMEOUT => $args['timeout'],
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_HEADER => [],
+            CURLOPT_HEADER => $args['headers'],
             CURLOPT_POSTFIELDS => $args['body']
         ]);
 
@@ -70,26 +70,49 @@ class Curl implements CurlInterface
         return $result;
     }
 
+    /**
+     * @param string $url
+     * @param array<string, mixed> $parameters
+     * @return mixed[]|null
+     */
     public function get($url, $parameters)
     {
         return $this->call(self::REQUEST_METHOD_GET, $url, $parameters);
     }
 
+    /**
+     * @param string $url
+     * @param array<string, mixed> $parameters
+     * @return mixed[]|null
+     */
     public function post($url, $parameters)
     {
         return $this->call(self::REQUEST_METHOD_POST, $url, $parameters);
     }
 
+    /**
+     * @param string $url
+     * @param array<string, mixed> $parameters
+     * @return mixed[]|null
+     */
     public function put($url, $parameters)
     {
         return $this->call(self::REQUEST_METHOD_PUT, $url, $parameters);
     }
 
+    /**
+     * @param string $url
+     * @param array<string, mixed> $parameters
+     * @return mixed[]|null
+     */
     public function delete($url, $parameters)
     {
         return $this->call(self::REQUEST_METHOD_DELETE, $url, $parameters);
     }
 
+    /**
+     * @return int
+     */
     public function getStatusCode()
     {
         return $this->statusCode;

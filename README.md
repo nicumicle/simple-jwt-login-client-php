@@ -29,7 +29,7 @@ This client will help you integrate your PHP Application with a WordPress websit
 ## Simple Example
 
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com');
     
     $result = $simpleJwtLogin->registerUser('email@test.com', 'My-password');
     
@@ -45,7 +45,7 @@ The output of result will be the actual API call result.
 In order to autologin, you will need to redirect to the WordPress website, with the generated URL:
 
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     header('Location: ' . $simpleJwtLogin->getAutologinUrl('My JWT', 'AUTH CODE', 'https://test.com'));
 ```
 The Auth Code parameter is optional. You can set it to `null` If you don't want to use it. 
@@ -55,7 +55,7 @@ The Auth Code parameter is optional. You can set it to `null` If you don't want 
 This will register a new user.
 
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     $result = $simpleJwtLogin->registerUser('email@simplejwtlogin.com', 'password', 'AUTH CODE');
 ```
 The Auth Code parameter is optional. You can set it to `null` If you don't want to use it.
@@ -91,7 +91,7 @@ Array
 This will delete a user.
 
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     $result = $simpleJwtLogin->deleteUser('Your JWT here', 'AUTH CODE');
 ```
 The Auth Code parameter is optional. You can set it to `null` If you don't want to use it.
@@ -110,7 +110,7 @@ Array
 This will send the reset password email.
 
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     $result = $simpleJwtLogin->resetPassword('email@simplejwtlogin.com', 'AUTH CODE');
 ```
 The Auth Code parameter is optional. You can set it to `null` If you don't want to use it.
@@ -131,13 +131,13 @@ The Auth Code parameter is optional. You can set it to `null` If you don't want 
 
 The following code part, will change the user password, using the reset password code:
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     $result = $simpleJwtLogin->changePassword('email@simplejwtlogin.com', 'new password', 'code', null, 'AUTH CODE');
 ```
 
 The following code part, will change the user password, using a JWT:
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     $result = $simpleJwtLogin->changePassword('email@simplejwtlogin.com', 'new password', null, 'Your JWT here', 'AUTH CODE');
 ```
 
@@ -158,7 +158,7 @@ The Auth Code parameter is optional. You can set it to `null` If you don't want 
 This will generate a JWT based on user credentials.
 
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     $result = $simpleJwtLogin->authenticate('email@simplejwtlogin.com', 'your password', 'AUTH CODE');
 ```
 
@@ -180,7 +180,7 @@ Array
 +The following code will refresh an expired token:
 
 ```php
-    $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+    $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     $result = $simpleJwtLogin->refreshToken('your JWT here', 'AUTH CODE');
 ```
 
@@ -204,7 +204,7 @@ Array
 The following code will check if your JWT is valid or not:
 
 ```php
-   $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1');
+   $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1');
     $result = $simpleJwtLogin->validateToken('your JWT here', 'AUTH CODE');
 ```
 
@@ -263,7 +263,7 @@ Array
 The following code will invalidate a JWT:
 
 ```php
-   $simpleJwtLogin = new SimpleJwtLoginClient'https://mydomain.com', '/simple-jwt-login/v1'); 
+   $simpleJwtLogin = new SimpleJwtLoginClient('https://mydomain.com', '/simple-jwt-login/v1'); 
    $result = $simpleJwtLogin->revokeToken('your JWT here', 'AUTH CODE');
 ```
 
@@ -279,8 +279,6 @@ Array
                 (
                     [0] => eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
                 )
-
         )
-
 )
 ```
